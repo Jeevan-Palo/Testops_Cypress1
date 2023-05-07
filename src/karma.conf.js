@@ -36,7 +36,13 @@ module.exports = function (config) {
         ]
       }
     },
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+        ChromeHeadlessNoSandbox: {
+            base: 'ChromeHeadless',
+            flags: ['--no-sandbox']
+        }
+    }
     singleRun: true
   });
 };
