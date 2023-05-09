@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                sh 'ps -ef | grep Xvfb | grep -v grep | awk '{print $2}' | xargs kill -9'
+                sh 'ps -ef | grep Xvfb'
                 sh 'npm run test'
             }
         }
