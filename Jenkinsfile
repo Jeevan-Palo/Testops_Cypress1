@@ -21,21 +21,22 @@ pipeline {
                 sh 'npm run build'
             }
         }
-//         stage('Unit Tests') {
-//             steps {
-//                 sh 'npm run test'
-//             }
-//         }
-//         stage('e2e Tests') {
-//             steps {
-//                 sh 'npm run cypress:ci'
-//             }
-//         }
-//         stage('Deploy') {
-//             steps {
-//                 echo 'Deploying....'
-//             }
-//         }
+        stage('Unit Tests') {
+            steps {
+                sh 'ps -ef | grep Xvfb | grep -v grep | awk '{print $2}' | xargs kill -9'
+                sh 'npm run test'
+            }
+        }
+        stage('e2e Tests') {
+            steps {
+                sh 'npm run cypress:ci'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
 
 //     post {
